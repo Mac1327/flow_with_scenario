@@ -5,11 +5,11 @@
   "name": "everymonth",
   "active": false,
   "versionTag": {
-    "versionNumber": 0,
+    "versionNumber": 1,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1637495576177
+    "lastModifiedOn": 1637495612046
   },
   "checklists": {
     "checklists": []
@@ -20,10 +20,52 @@
     "suppressTriggersWhileRunning": true
   },
   "tags": [],
-  "triggers": [],
+  "triggers": [
+    {
+      "id": "s3gw4LdT",
+      "type": "temporal",
+      "name": "Time-based",
+      "delay": 5,
+      "active": true,
+      "params": {
+        "repeatFrequency": 1,
+        "frequency": "Monthly",
+        "startingFrom": "2021-11-21T11:52:00.000Z",
+        "daysOfWeek": [
+          "Sunday"
+        ],
+        "monthlyRunOn": "ON_THE_DAY",
+        "minute": 0,
+        "hour": 2,
+        "timezone": "SERVER"
+      }
+    }
+  ],
   "reporters": [],
   "params": {
-    "steps": []
+    "steps": [
+      {
+        "id": "custom_python_Nnuf8F4rhzYxCHJc68W42Q",
+        "type": "custom_python",
+        "name": "Step #1",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "script": "import dataiku\nfrom dataiku import pandasutils as pdu\nimport pandas as pd\n\n# Example: load a DSS dataset as a Pandas dataframe\nmydataset \u003d dataiku.Dataset(\"synthetic_data_prepared\")\ndf \u003d mydataset.get_dataframe()\n\ndf[\"copy2\"] \u003d0\ndf[\"copy1\"] \u003d0\n\npredict_calculate_difference \u003d dataiku.Dataset(\"synthetic_data_prepared\")\npredict_calculate_difference.write_with_schema(df)",
+          "envSelection": {
+            "envMode": "INHERIT"
+          },
+          "proceedOnFailure": false
+        }
+      }
+    ]
   },
   "automationLocal": false,
   "customFields": {}
