@@ -5,11 +5,11 @@
   "name": "further_example",
   "active": false,
   "versionTag": {
-    "versionNumber": 0,
+    "versionNumber": 1,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1637495715179
+    "lastModifiedOn": 1637495766602
   },
   "checklists": {
     "checklists": []
@@ -23,7 +23,29 @@
   "triggers": [],
   "reporters": [],
   "params": {
-    "steps": []
+    "steps": [
+      {
+        "id": "custom_python_Me0cr3dRSTUw2Efytz0sMw",
+        "type": "custom_python",
+        "name": "Step #1",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "script": "# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE\n# -*- coding: utf-8 -*-\nimport dataiku\nimport pandas as pd, numpy as np\nfrom dataiku import pandasutils as pdu\nfrom scipy import stats\nimport datetime\n\nn_days \u003d365*5\nunit_cost \u003d 3.5\n\n# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE\ndef make_auto_ts(ar1\u003d0.99,ar2\u003d0, n\u003dn_days, y0 \u003d 0, y1 \u003d 0, mu\u003d0, sigma\u003d1, cust\u003d 50,days_empty \u003d 7):\n\n    X\u003dnp.arange(n)\n    y_list \u003d []\n    for i in range(n):\n        # build an AR process of params (beta_1, beta_2) \u003d (ar1, ar2)\n        # With noise epsilon(t) \u003d Normal(mu, sigma)\n        y_new \u003d np.round(ar1 * y1 + ar2* y0 + stats.norm.rvs(mu,sigma))\n        y0 \u003d y1\n        y1 \u003d y_new.copy()\n        y_list.append(y0)\n    y_list \u003d np.array(y_list) + cust\n    no_sales \u003d np.random.choice(range(len(y_list)),10, replace\u003dFalse)\n    for n in no_sales:\n        y_list[n:n+days_empty] \u003d  0\n    return y_list\n\n# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE\nn_products \u003d 5\n\nbase \u003d datetime.datetime.today()\ndate_list \u003d [base - datetime.timedelta(days\u003dx) for x in range(n_days)]\ndf \u003d pd.DataFrame()\ndf[\"date_time\"] \u003d date_list\nfor product in range(n_products):\n    cust \u003d np.random.randint(45,65)\n    y_list \u003d  make_auto_ts(cust\u003d cust)\n    df[f\"units_0{product+1}\"] \u003d y_list\n\n# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE\ndf_long\u003d pd.wide_to_long(df, stubnames\u003d\"units_\", i\u003d\"date_time\", j\u003d\"prod\", sep\u003d\u0027\u0027, suffix\u003d\u0027\\\\d+\u0027).sort_values(\"date_time\")\n\n# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE\ndf_long.reset_index(inplace\u003dTrue)\n\n# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE\n# Write recipe outputs\nmultiple_products \u003d dataiku.Dataset(\"multiple_products\")\nmultiple_products.write_with_schema(df_long)",
+          "envSelection": {
+            "envMode": "INHERIT"
+          },
+          "proceedOnFailure": false
+        }
+      }
+    ]
   },
   "automationLocal": false,
   "customFields": {}
