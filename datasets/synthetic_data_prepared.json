@@ -28,11 +28,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 4,
+    "versionNumber": 5,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1637495804940
+    "lastModifiedOn": 1637495829923
   },
   "creationTag": {
     "versionNumber": 0,
@@ -63,27 +63,23 @@
         "type": "date"
       },
       {
-        "name": "units_01",
+        "name": "prod",
+        "type": "bigint"
+      },
+      {
+        "name": "units_",
         "type": "double"
       },
       {
-        "name": "units_02",
+        "name": "copy1",
         "type": "double"
       },
       {
-        "name": "units_03",
-        "type": "double"
-      },
-      {
-        "name": "units_04",
-        "type": "double"
-      },
-      {
-        "name": "units_05",
+        "name": "copy2",
         "type": "double"
       }
     ],
-    "userModified": false
+    "userModified": true
   },
   "dkuProperties": [],
   "metrics": {
