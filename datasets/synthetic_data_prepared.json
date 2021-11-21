@@ -28,11 +28,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 6,
+    "versionNumber": 7,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1637495881411
+    "lastModifiedOn": 1637495897518
   },
   "creationTag": {
     "versionNumber": 0,
@@ -63,19 +63,23 @@
         "type": "date"
       },
       {
-        "name": "prod",
-        "type": "bigint"
-      },
-      {
-        "name": "units_",
+        "name": "units_01",
         "type": "double"
       },
       {
-        "name": "copy1",
+        "name": "units_02",
         "type": "double"
       },
       {
-        "name": "copy2",
+        "name": "units_03",
+        "type": "double"
+      },
+      {
+        "name": "units_04",
+        "type": "double"
+      },
+      {
+        "name": "units_05",
         "type": "double"
       }
     ],
