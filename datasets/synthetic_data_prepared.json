@@ -28,11 +28,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 0,
+    "versionNumber": 1,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1637494952291
+    "lastModifiedOn": 1637495232520
   },
   "creationTag": {
     "versionNumber": 0,
@@ -68,6 +68,14 @@
       },
       {
         "name": "units_",
+        "type": "double"
+      },
+      {
+        "name": "copy1",
+        "type": "double"
+      },
+      {
+        "name": "copy2",
         "type": "double"
       }
     ],
