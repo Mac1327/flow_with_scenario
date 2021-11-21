@@ -28,11 +28,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 2,
+    "versionNumber": 3,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1637495613443
+    "lastModifiedOn": 1637495669890
   },
   "creationTag": {
     "versionNumber": 0,
@@ -60,23 +60,23 @@
     "columns": [
       {
         "name": "date_time",
-        "type": "date"
+        "type": "string"
       },
       {
         "name": "prod",
-        "type": "bigint"
+        "type": "string"
       },
       {
         "name": "units_",
-        "type": "double"
+        "type": "string"
       },
       {
         "name": "copy1",
-        "type": "bigint"
+        "type": "double"
       },
       {
         "name": "copy2",
-        "type": "bigint"
+        "type": "double"
       }
     ],
     "userModified": false
