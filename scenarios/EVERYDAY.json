@@ -5,11 +5,11 @@
   "name": "everyday",
   "active": false,
   "versionTag": {
-    "versionNumber": 5,
+    "versionNumber": 6,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1637911483767
+    "lastModifiedOn": 1637911522055
   },
   "checklists": {
     "checklists": []
