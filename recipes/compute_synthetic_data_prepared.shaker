@@ -26,8 +26,34 @@
     "autoRefreshSample": false
   },
   "explorationFilters": [],
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnCopier",
+      "params": {
+        "outputColumn": "copy1",
+        "inputColumn": "units_"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnCopier",
+      "params": {
+        "outputColumn": "copy2",
+        "inputColumn": "copy1"
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -35,7 +61,13 @@
     "autoRefreshSample": false
   },
   "analysisColumnData": {},
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "prod": 100,
+    "date_time": 183,
+    "units_": 100,
+    "copy2": 100,
+    "copy1": 100
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
