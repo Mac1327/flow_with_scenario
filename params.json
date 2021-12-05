@@ -120,8 +120,9 @@
       }
     }
   },
-  "name": "2_aut_eg",
+  "name": "multiple_code_1_ouput",
   "projectStatus": "Sandbox",
+  "imgPattern": 7,
   "metrics": {
     "probes": [],
     "engineConfig": {
@@ -175,6 +176,13 @@
     "displayedState": {
       "checks": []
     }
+  },
+  "versionTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1638699415617
   },
   "creationTag": {
     "versionNumber": 0,
