@@ -28,11 +28,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 0,
+    "versionNumber": 1,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1638698291526
+    "lastModifiedOn": 1638698341453
   },
   "creationTag": {
     "versionNumber": 0,
@@ -57,8 +57,21 @@
     "readSQLDateColsAsDSSDates": true
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {
+        "name": "date_time",
+        "type": "date"
+      },
+      {
+        "name": "prod",
+        "type": "bigint"
+      },
+      {
+        "name": "units_",
+        "type": "double"
+      }
+    ],
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
