@@ -6,11 +6,9 @@ from dataiku import pandasutils as pdu
 from dataiku import SQLExecutor2, Dataset
 from dataikuapi import DSSClient
 
-
 client = dataiku.api_client()
 project_key = dataiku.get_custom_variables()['projectKey']
 executor = SQLExecutor2(connection="test_connection")
-
 
 # Read recipe inputs
 synthetic_data2_prepared = dataiku.Dataset("synthetic_data2_prepared")
