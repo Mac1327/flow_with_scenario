@@ -22,7 +22,7 @@ if which_query == 1:
     query = f"""SELECT *
                 FROM "{project_key}_synthetic_data2_prepared"
                 LIMIT(1) """
-elif which_query == 1:
+elif which_query == 2:
     query = f"""SELECT * 
                 FROM "{project_key}_synthetic_data2_prepared" 
                 LIMIT(100) """
