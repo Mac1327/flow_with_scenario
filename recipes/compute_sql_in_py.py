@@ -23,7 +23,7 @@ if which_query == 1:
 elif which_query == 2:
     query = f"""SELECT * 
                 FROM "{project_key}_synthetic_data2_prepared" 
-                LIMIT(100) """
+                LIMIT(2) """
 
 sql_in_py_df = executor.query_to_df(query)
 
