@@ -6,9 +6,11 @@ from dataiku import pandasutils as pdu
 from dataiku import SQLExecutor2, Dataset
 from dataikuapi import DSSClient
 
+
 client = dataiku.api_client()
 project_key = dataiku.get_custom_variables()['projectKey']
 executor = SQLExecutor2(connection="test_connection")
+
 
 # Read recipe inputs
 synthetic_data2_prepared = dataiku.Dataset("synthetic_data2_prepared")
@@ -20,10 +22,10 @@ if which_query == 1:
     query = f"""SELECT *
                 FROM "{project_key}_synthetic_data2_prepared"
                 LIMIT(1) """
-elif which_query == 2:
+elif which_query == 1:
     query = f"""SELECT * 
                 FROM "{project_key}_synthetic_data2_prepared" 
-                LIMIT(2) """
+                LIMIT(100) """
 
 sql_in_py_df = executor.query_to_df(query)
 
